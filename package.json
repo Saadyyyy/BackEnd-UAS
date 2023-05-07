@@ -1,0 +1,25 @@
+{
+  "name": "uts",
+  "version": "1.0.0",
+  "description": "Tugas Todo List",
+  "main": "index.js",
+  "scripts": {
+    "saady": "nodemon index.js"
+  },
+  "keywords": [
+    "express",
+    "js"
+  ],
+  "author": "Laode Saady",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mysql2": "^3.1.2",
+    "sequelize": "^6.29.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
