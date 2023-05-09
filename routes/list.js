@@ -3,18 +3,6 @@ const sequelize = require('../db.config')
 const router = express.Router()
 const ModelList = require('../models/list')
 
-//endpoint utama Method Get / Read Data
-// router.get('/all', async(req, res) => {
-    
-//     const list = await ModelList.findAll()
-//     res.status(200).json({
-//         data : list,
-//         metadata : "Read All Data on the List"
-//     })
-// })
-
-//Endpoint Method GET / Search data
-
 
 router.get('/aktif',async (req, res) => {
   const nim = req.query.nim;
@@ -108,34 +96,14 @@ router.post('/searchSelesai', async(req, res) => {
 })
     
 
-    //Versi Raw Query
-    // const list = await sequelize.query(`SELECT * FROM lists WHERE kegiatan LIKE'%${search}%' AND nama = '${nama}'`)
-
-    //Versi Sequelize
-    // const { Op } = require("sequelize");
-    // const list = await ModelList.findAll({
-    //     where: {
-    //         [Op.and] : [
-    //             { nama : nama },
-    //             {
-    //                 kegiatan : {
-    //                     [Op.like]: `%${search}%`
-    //                 }
-    //             }
-    //         ]
-    //     }
-    // })
-    // Search Kegiatan aja
-    
-
 
 //Endpoint Method Post / Create Data
 router.post('/', async(req, res) => {
     
-    const {nim, kegiatan,tanggal} = req.body
+    const {nim, kegiatan,tanggal,status} = req.body
     
     const list = await ModelList.create({
-        nim, kegiatan, status: "aktif",tanggal
+        nim, kegiatan, status,tanggal
     })
 
     res.status(200).json({
